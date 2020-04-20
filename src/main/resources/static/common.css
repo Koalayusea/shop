@@ -1,0 +1,249 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019-4-7, 16:53:41
+    Author     : 83588
+*/
+html,body{
+    text-align: center;
+    margin: 20px auto;
+    min-width: 1200px;
+    width:100%;
+}
+
+#payHintBg{
+    display:none;
+    z-index: 90;
+    position: fixed;
+    filter:blur(100px);
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+    opacity: 0.8;
+}
+
+#payHintFront{
+    z-index: 99;
+    display:none;
+    position: fixed;
+    left:0;
+    right: 0;
+    top:0;
+    bottom:8%;
+    margin:auto auto;
+    height: 30%;
+    width: 50%;
+    text-align: center;
+    color:white;
+    letter-spacing: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    user-select:none;
+    background: rgba(234, 232, 232, 0.79);
+}
+
+.glyphicon-remove{
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding:5px;
+    font-size: 25px;
+    cursor:pointer;
+}
+
+#leftBlock{
+    display: inline-block;
+    margin-right: 0px;
+    text-align: left;
+    width:250px;
+    height: 750px;
+    vertical-align: top;
+}
+
+#leftBlockTitle{
+    text-align: center;
+    background-color: #fde087;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 2px;
+}
+
+#leftBlockContent{
+    max-height: 95%;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 5px;
+}
+
+#leftBottom{
+    min-height: 100px;
+    overflow: auto;
+}
+
+#leftBottomTitle{
+    text-align: center;
+}
+
+#leftBottom span.glyphicon{
+    margin: 0px;
+}
+
+#leftBottom #totalPayDiv, #leftBottom #SettlementDiv{
+    display:inline-block;
+    margin-top: 5px;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+#leftBottom #SettlementDiv{
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration:underline;
+    cursor: pointer;
+    user-select:none;
+}
+
+#leftBottom #SettlementDiv:hover{
+    color:#ffc000;
+}
+
+#rightBlock{
+    display: inline-block;
+    width: 50%;
+    max-width: 800px;
+    height: 760px;
+}
+
+#rightTopBlock{
+    display: inline-block;
+    border: 1px solid gray;
+    height: 75%;
+    float: left;
+    overflow: auto;
+    width: 100%;
+}
+
+#rightBottomBlock{
+    height:19%;
+    margin-top: 5px;
+    width: 100%;
+    overflow: auto;
+    text-align: left;
+    float:left;
+    font-size: 1.5em;
+}
+
+#rightBottomBlockTitle{
+    margin-top:0px;
+    text-align: center;
+    background:#9ed5fd;
+}
+
+#rightBottomBlock span{
+    margin-left:5px;
+    margin-right: 5px;
+}
+
+.square{
+    width: calc(90% / 2);
+    display: inline-block;
+    margin: 10px;
+    line-height: 30px;
+    background-image: linear-gradient(#00ffb8,#e2fcfd,#00b8ff);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.square span:first-of-type{
+    display:block;
+    width: 50%;
+    border-bottom: 2px solid rgb(53, 120, 154);
+    margin:auto;
+}
+
+.square span:last-of-type{
+    display: none;
+}
+
+#counter{
+    height: 5%;
+    float:left;
+    margin-top: 2px;
+    width:100%;
+    border-top: 2px dashed black;
+    padding-top:2px;
+}
+
+#counter span#payCount{
+    display: inline-block;
+    text-align: left;
+    width: 45%;
+    font-size: 1.5em;
+}
+
+#counter button{
+    width: 45%;
+    float: right;
+}
+
+#rightBottomBlockHint{
+    text-align: center;
+    position: relative;
+    top: 20%;
+}
+
+#userInfo{
+    color:black;
+    padding:10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.glyphicon.glyphicon-remove-circle{
+    cursor:pointer;
+}
+
+
+/* product infomation page css code*/
+#productName{
+    margin-top:0px;
+    text-align: center;
+    background:rgba(135, 252, 253, 0.81);
+}
+
+#productUnitQuantity,#productUnitPrice,#productIn_stock{
+    font-size:2em;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+
+span.desc{
+    display:inline-block;
+    width:100px;
+}
+
+.quantityDivision{
+    text-align: center;
+}
+
+.quantity{
+    font-size: 2.0em;
+    user-select:none;
+}
+
+.glyphicon.glyphicon-minus-sign,.glyphicon.glyphicon-plus-sign{
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn.btn-info{
+    width:180px;
+    height: 40px;
+    font-size: 1.5em;
+    margin-top:20px;
+}

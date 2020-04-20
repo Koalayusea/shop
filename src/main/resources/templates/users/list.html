@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h2 th:text="${title}"></h2>
+    </div>
+    <div>
+        <a th:href="@{/users/form}">创建用户</a>
+    </div>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="group">组号</th>
+                <th data-field="name">姓名</th>
+                <th data-field="username">用户名</th>
+                <th data-field="mobile">电话</th>
+                <th data-field="operation">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user:${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.group}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.mobile}"></td>
+                <td>
+                    <div>
+                        <a th:href="@{'/users/edit/'+${user.id}}">
+                            修改
+                        </a>
+                        <a th:href="@{'/users/delete/'+${user.id}}">
+                            删除
+                        </a>
+                        <a href="#">
+                            发送
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Admin Template</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
+
+    <!-- Template Styles -->
+    <link rel="stylesheet" href="/admin/css/font-awesome.min.css">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="/admin/css/normalize.css">
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="/admin/css/milligram.min.css">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="/admin/css/styles.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+        <!--Forms-->
+        <h5 class="mt-2" th:text="${title}"></h5><a class="anchor" name="forms"></a>
+        <div class="row grid-responsive">
+            <div class="column ">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Sample Form</h3>
+                    </div>
+                    <div class="card-block">
+                        <form th:action="@{/admin1/modifyUser}" method="post" th:object="${user}">
+                            <fieldset>
+                                <input type="hidden" name="id" th:value="*{id}">
+                                <label for="name" >Name</label>
+                                <input type="text"  id="name" name="name" th:value="*{name}">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" th:value="*{password}">
+                                <label for="mobile">Mobile</label>
+                                <input type="text"  id="mobile" name="mobile" th:value="*{mobile}">
+                                <input class="button-primary" type="submit" value="SEND">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script src="/admin/js/chart.min.js"></script>
+<script src="/admin/js/chart-data.js"></script>
+
+</body>
+</html>

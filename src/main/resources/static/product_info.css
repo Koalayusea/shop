@@ -1,0 +1,44 @@
+/**
+* Product informaion page 
+* css code
+*/
+
+#productName{
+    margin-top:0px;
+    text-align: center;
+    background:rgba(135, 252, 253, 0.81);
+}
+
+#productUnitQuantity,#productUnitPrice,#productIn_stock{
+    padding-left: 25%;
+    font-size:2em;
+    margin-top:30px;
+    margin-bottom:25px;
+}
+
+
+span.desc{
+    display: inline-block;
+    width:250px;
+}
+
+.quantityDivision{
+    text-align: center;
+}
+
+.quantity{
+    font-size: 2.0em;
+    user-select:none;
+}
+
+.glyphicon.glyphicon-minus-sign,.glyphicon.glyphicon-plus-sign{
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn.btn-info{
+    width:180px;
+    height: 40px;
+    font-size: 1.5em;
+    margin-top:20px;
+}

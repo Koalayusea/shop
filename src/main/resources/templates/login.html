@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <style>
+        .login-main{
+            background-image: url("/img/bg-login.jpg");
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+        }
+        .login-body{
+            margin: 0 40%;
+            min-width: 400px;
+            text-align: center;
+        }
+        .blizzard{
+            margin: 55px auto 40px auto;
+            height: 205px;
+            width: 200px;
+        }
+        .login-text{
+            padding: 10px;
+        }
+        .text-group{
+            display: block;
+            border: 1px solid #7f7f7f;
+            background: black;
+            width: 358px;
+            padding: 10px;
+            margin-left:auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: white;
+        }
+        .text-group:hover{
+            border-color: white;
+        }
+        .btn-primary,.btn-danger{
+            margin-top: 20px;
+            width: 358px;
+            height: 44px;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        .btn-primary:hover{
+            background-color: #00aeff;
+        }
+        .login-text li{
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .login-text a{
+            color: #00aeff;
+        }
+    </style>
+</head>
+<body>
+<div class="login-main">
+    <div class="login-body">
+        <div class="blizzard">
+        </div>
+        <form class="login-text" method="post" action="/login">
+            <input class="text-group" type="text" name="username" id="username" placeholder="请输入账号">
+            <input class="text-group" type="password" name="password" id="password" placeholder="请输入密码">
+            <button type="submit" class="btn btn-primary" id="login-btn">登陆</button>
+            <ul type="none">
+                <li><a href="#">免费创建用户</a></li>
+                <li><a href="#">无法登陆？</a></li>
+            </ul>
+        </form>
+    </div>
+</div>
+<!--页面 自定义 JS-->
+<script>
+    $(function () {
+        $("#login-btn1").click(function () {
+            window.open("main.html","_self");
+        })
+    })
+</script>
+</body>
+</html>

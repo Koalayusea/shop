@@ -1,0 +1,44 @@
+<!DOCTYPE Html>
+<html lang="zh-cn">
+    <head>
+        <title>Shopping System</title>
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=yes">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.0.0/css/bootstrap.css">
+        <script src="./bootstrap-treeview.js"></script>
+        <link rel="stylesheet" href="common.css">
+        <script src="common.js"></script>
+    </head>
+    <body>
+        <div id="payHintBg"></div>
+        <div id="payHintFront"><span id="hintRemove" class="glyphicon glyphicon-remove"></span><span id="payHintText">提示</span></div>
+        <div id="leftBlock">
+            <div id="leftBlockTitle">类别</div>
+
+            <!-- Bootstrap Treeview Division -->
+            <div id="leftBlockContent"></div>
+            <!-- <div id="leftBottom">
+                <div id="leftBottomTitle">Order fee</div>
+                <div id="totalPayDiv">Total:<span class='glyphicon glyphicon-usd'></span> <span id="totalPay">0</span></div><div id="SettlementDiv">Settlement</div>
+            </div> -->
+        </div>
+
+        <div id="rightBlock">
+            <div id="rightTopBlock" style="overflow: hidden;">
+                <!-- 嵌套商品信息/欢迎页面 -->
+                <div style="width: 100%;height:100%;border:0;" id="productInfoDiv">GTD购物系统</div>
+            </div>
+            
+            <div id="rightBottomBlock">
+                <div id="rightBottomBlockTitle">购物车</div>
+                <div id="rightBottomBlockHint">你还没把商品加入到购物车</div>
+            </div>
+            <div id="counter"><span class="glyphicon glyphicon-usd"></span><span id="payCount">0</span><button class="btn btn-success" disabled="disabled" onclick="paymentReady()">结算</button></div>
+        </div>
+        <script>
+            var totalPay = 0;
+        </script>
+    </body>
+</html>
+

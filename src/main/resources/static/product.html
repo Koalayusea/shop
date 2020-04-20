@@ -1,0 +1,49 @@
+<!DOCTYPE Html>
+<html lang="zh-cn">
+    <head>
+        <title>product Infomation</title>
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=yes">
+        <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.0.0/css/bootstrap.css">
+        <script src="./bootstrap-treeview.js"></script>
+        <link rel="stylesheet" href="product_info.css">
+        <script src="common.js"></script>
+    </head>
+    <body>
+        <?php
+        define('_MODE', true);
+        require 'config.php';
+        //get products
+        if (@$_GET['product'] != '') {
+            $_GET['product'] = addslashes($_GET['product']);
+            //TODO SQL Injection Prevention
+            if (@$_GET['child'] != '') {
+                $_GET['child'] = addslashes($_GET['child']);
+                $sql_str = "select * from `products` where `product_name` = '{$_GET['product']}' and `unit_quantity`='{$_GET['child']}' limit 1";
+            } else
+                $sql_str = "select * from `products` where `product_name` = '{$_GET['product']}' limit 1";
+            $mysqli_result_obj = $mysqli_con->query($sql_str);
+            if ($mysqli_con->errno) {
+                die($mysqli_con->error);
+            }
+            $products_item = $mysqli_result_obj->fetch_array(MYSQLI_ASSOC);
+            $mysqli_con->close();
+            if (count($products_item) > 0) {
+                //show product information
+                echo "<h1 id='productName'>" . $products_item['product_name'] . "</h1>";
+                echo "<h2 id='productUnitQuantity'><span class='desc'>Unit Quantity:</span><span>" . $products_item['unit_quantity'] . "</span></h2>";
+                echo "<h3 id='productUnitPrice'><span class='desc'>   Price:</span><span>" . $products_item['unit_price'] . "</span></h3>";
+                echo "<h4 id='productIn_stock'><span class='desc'>Quantity Available:</span><span>" . $products_item['in_stock'] . "</span></h4>";
+                echo <<<EOF
+                <div class="quantityDivision">
+                <div class="quantity"><span class="glyphicon glyphicon-minus-sign" onclick="purchasesQuantityChange('reduce')"></span><span id="purchaseQuantity">0</span><span class="glyphicon glyphicon-plus-sign" onclick="purchasesQuantityChange('increase')"></span></div>
+                <button class="btn btn-info" onclick="updatePurchasesList()" disabled>Submit</button></div>
+EOF;
+            } else {
+                //show error message because the product information could not be found
+                echo "<h1 style='color:red;'>error</h1>";
+            }
+        }
+        ?>
+    </body>
+</html>

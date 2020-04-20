@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h2 th:text="${title}">Welcome</h2>
+        </div>
+
+        <div>
+            <p>
+                <a href="/users" th:href="@{/users}" role="button">返回</a>
+            </p>
+        </div>
+
+        <div>
+            <form th:action="@{/users/add}" method="post" th:object="${user}">
+                <input type="hidden" name="id" th:value="*{id}">
+
+                <div>
+                    <label for="name">姓名</label>
+                    <input type="text" name="name" id="name" th:value="*{name}">
+                </div>
+                <div>
+                    <label for="username">用户名</label>
+                    <input type="text" name="username" id="username" th:value="*{username}">
+                </div>
+                <div>
+                    <label for="password">密码</label>
+                    <input type="password" name="password" id="password" th:value="*{password}">
+                </div>
+                <input type="submit" value="提交">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 Admin Template</title>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
+
+	<!-- Template Styles -->
+	<link rel="stylesheet" href="/admin/css/font-awesome.min.css">
+
+	<!-- CSS Reset -->
+	<link rel="stylesheet" href="/admin/css/normalize.css">
+
+	<!-- Milligram CSS minified -->
+	<link rel="stylesheet" href="/admin/css/milligram.min.css">
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="/admin/css/styles.css">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<div class="navbar">
+	<div class="row">
+		<div class="column column-30 col-site-title"><a href="#" class="site-title float-left">Medialoot</a></div>
+		<!--<div class="column column-40 col-search"><a href="#" class="search-btn fa fa-search"></a>-->
+		<!--<input type="text" name="" value="" placeholder="Search..." />-->
+		<!--</div>-->
+		<div class="column column-30">
+			<div class="user-section"><a th:href="@{/logout}">
+				<img src="http://via.placeholder.com/50x50" alt="profile photo" class="circle float-left profile-photo" width="50" height="auto">
+				<div class="username">
+					<h4>Jane Donovan</h4>
+					<p>Administrator</p>
+				</div>
+			</a></div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div id="sidebar" class="column">
+		<h5>目录</h5>
+		<ul>
+			<li><a href="#"><em class="fa fa-home"></em> 主页</a></li>
+			<li><a href="#user_tables"><em class="fa fa fa-clone"></em> 用户管理</a></li>
+			<li><a href="#user_forms"><em class="fa fa-pencil-square-o"></em> 创建用户</a></li>
+			<li><a href="#products_tables"><em class="fa fa-warning"></em> 上架商品</a></li>
+			<li><a href="#products_forms"><em class="fa fa-hand-o-up"></em> 增加商品</a></li>
+			<li><a href="#exchange_tables"><em class="fa fa-table"></em> 交易记录</a></li>
+		</ul>
+	</div>
+	<section id="main-content" class="column column-offset-20">
+		<div class="row grid-responsive">
+			<div class="column page-heading">
+				<div class="large-card">
+					<h1>生活不易，多才多艺</h1>
+					<p class="text-large">世界上最遥远的距离不是生与死，而是你亲手制造的BUG就在你眼前，你却怎么都找不到她。 <br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>————鲁迅</em></p>
+					<!--<a class="button">修改标题</a>-->
+				</div>
+			</div>
+		</div>
+
+		<!--&lt;!&ndash;Charts&ndash;&gt;-->
+		<!--<h5 >Charts</h5><a class="anchor" name="charts"></a>-->
+		<!--<a th:href="@{'/logout'}">-->
+		<!--修改-->
+		<!--</a>-->
+		<!--<div class="row grid-responsive">-->
+		<!--<div class="column column-50">-->
+		<!--<div class="card">-->
+		<!--<div class="card-title">-->
+		<!--<h2>Line Chart</h2>-->
+		<!--</div>-->
+		<!--<div class="card-block">-->
+		<!--<div class="canvas-wrapper">-->
+		<!--<canvas class="chart" id="line-chart" height="auto" width="auto"></canvas>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="column column-50">-->
+		<!--<div class="card">-->
+		<!--<div class="card-title">-->
+		<!--<h2>Bar Chart</h2>-->
+		<!--</div>-->
+		<!--<div class="card-block">-->
+		<!--<div class="canvas-wrapper">-->
+		<!--<canvas class="chart" id="bar-chart" height="auto" width="auto"></canvas>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+
+		<!--User_Tables-->
+		<h5 class="mt-2">Tables</h5><a class="anchor" name="user_tables"></a>
+		<div class="row grid-responsive">
+			<div class="column ">
+				<div class="card">
+					<div class="card-title">
+						<h3 th:text="${userTitle}"></h3>
+					</div>
+					<div class="card-block">
+						<table>
+							<thead>
+							<tr>
+								<th data-field="id">Id</th>
+								<th data-field="name">Name</th>
+								<th data-field="username">Username</th>
+								<th data-field="mobile">Mobile</th>
+								<th data-field="operation">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr th:each="user:${userList}">
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.name}"></td>
+								<td th:text="${user.username}"></td>
+								<td th:text="${user.mobile}"></td>
+								<td>
+									<div>
+										<a th:href="@{'/admin1/editUser/'+${user.id}}">
+											修改
+										</a>
+										<a th:href="@{'/admin1/deleteUser/'+${user.id}}">
+											删除
+										</a>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Users_Forms-->
+		<h5 class="mt-2">FORMS</h5><a class="anchor" name="user_forms"></a>
+		<div class="row grid-responsive">
+			<div class="column ">
+				<div class="card">
+					<div class="card-title">
+						<h3 th:text="${useraddTitle}"></h3>
+					</div>
+					<div class="card-block">
+						<form th:action="@{/admin1/addUser}" method="post" th:object="${user}">
+							<fieldset>
+								<input type="hidden" name="id">
+								<label for="name">Name</label>
+								<input type="text" placeholder="Jack" name="name" id="name" >
+								<label for="username">Username</label>
+								<input type="text" placeholder="admin" name="username" id="username" >
+								<label for="password">Password</label>
+								<input type="password"  id="password" name="password">
+								<label for="mobile">Mobile</label>
+								<input type="text" placeholder="xxxx-xxxx-xxxx" id="mobile" name="mobile">
+								<br/>
+								<input class="button-primary" type="submit" value="SEND">
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Products_Tables-->
+		<h5 class="mt-2">Tables</h5><a class="anchor" name="products_tables"></a>
+		<div class="row grid-responsive">
+			<div class="column ">
+				<div class="card">
+					<div class="card-title">
+						<h3 th:text="${goodsTitle}"></h3>
+					</div>
+					<div class="card-block">
+						<table>
+							<thead>
+							<tr>
+								<th data-field="id">Id</th>
+								<th data-field="name">Name</th>
+								<th data-field="category">Category</th>
+								<th data-field="stock">Stock</th>
+								<th data-field="price">Price</th>
+								<th data-field="PIC">PIC</th>
+								<th style="width: 100px" data-field="operation">操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr th:each="goods:${goodsList}">
+								<td th:text="${goods.id}"></td>
+								<td style="width: 100px" th:text="${goods.name}"></td>
+								<td th:text="${goods.category}"></td>
+								<td th:text="${goods.stock}"></td>
+								<td th:text="${goods.price}"></td>
+								<td th:text="${goods.PIC}"></td>
+								<td>
+									<div>
+										<a th:href="@{'/admin1/editGoods/'+${goods.id}}">
+											修改
+										</a>
+									</div>
+									<div>
+										<a th:href="@{'/admin1/deleteGoods/'+${goods.id}}">
+											删除
+										</a>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Products_Forms-->
+		<h5 class="mt-2">Forms</h5><a class="anchor" name="products_forms"></a>
+		<div class="row grid-responsive">
+			<div class="column ">
+				<div class="card">
+					<div class="card-title">
+						<h3 th:text="${goodsaddTitle}"></h3>
+					</div>
+					<div class="card-block">
+						<form th:action="@{/admin1/addGoods}" method="post" th:object="${goods}">
+							<fieldset>
+								<label for="goods_name">Name</label>
+								<input type="text" placeholder="apple" id="goods_name" name="name">
+								<label for="category">Category</label>
+								<select id="category" name="category">
+									<option value="海鲜">海鲜</option>
+									<option value="水果">水果</option>
+									<option value="蔬菜">蔬菜</option>
+								</select>
+								<label for="stock">Stock</label>
+								<input type="text" placeholder="100" id="stock" name="stock">
+								<label for="price">Price</label>
+								<input type="text" placeholder="100$" id="price" name="price">
+								<label for="pic">PIC_URL</label>
+								<input type="text" id="pic" name="PIC">
+								<br/>
+								<input class="button-primary" type="submit" value="Send">
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- //End of products section -->
+
+		<!--Exchange_Table-->
+		<h5 class="mt-2">Tables</h5><a class="anchor" name="exchange_tables"></a>
+		<div class="row grid-responsive">
+			<div class="column ">
+				<div class="card">
+					<div class="card-title">
+						<h3 th:text="${exchange_Title}"></h3>
+					</div>
+					<div class="card-block">
+						<table>
+							<thead>
+							<tr>
+								<th data-field="id">Id</th>
+								<th data-field="date">Date</th>
+								<th data-field="time">Time</th>
+								<th data-field="buy_count">Buy_Count</th>
+								<th data-field="name">Name</th>
+								<th data-field="address">Address</th>
+								<th data-field="email">e-mail</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr th:each="exchanges:${exchange_List}">
+								<td th:text="${exchanges.id}"></td>
+								<td th:text="${exchanges.date}"></td>
+								<td th:text="${exchanges.time}"></td>
+								<td th:text="${exchanges.buy_count}"></td>
+								<td th:text="${exchanges.name}"></td>
+								<td th:text="${exchanges.address}"></td>
+								<td th:text="${exchanges.email}"></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //End of products section -->
+
+
+		<p class="credit">HTML5 Admin Template by <a href="#">Medialoot</a></p>
+	</section>
+</div>
+
+<script src="/admin/js/chart.min.js"></script>
+<script src="/admin/js/chart-data.js"></script>
+<script>
+    window.onload = function () {
+        var chart1 = document.getElementById("line-chart").getContext("2d");
+        window.myLine = new Chart(chart1).Line(lineChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+        var chart2 = document.getElementById("bar-chart").getContext("2d");
+        window.myBar = new Chart(chart2).Bar(barChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+        var chart4 = document.getElementById("pie-chart").getContext("2d");
+        window.myPie = new Chart(chart4).Pie(pieData, {
+            responsive: true,
+            segmentShowStroke: false
+        });
+        var chart5 = document.getElementById("radar-chart").getContext("2d");
+        window.myRadarChart = new Chart(chart5).Radar(radarData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.05)",
+            angleLineColor: "rgba(0,0,0,.2)"
+        });
+        var chart6 = document.getElementById("polar-area-chart").getContext("2d");
+        window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            segmentShowStroke: false
+        });
+    };
+</script>
+
+</body>
+</html> 
